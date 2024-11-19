@@ -1,6 +1,10 @@
-window.addEventListener("DOMContentLoaded", main);
+// window.addEventListener("DOMContentLoaded", main);
 
-function toggleMenu() {
-    const navLinks = document.getElementById("navLinks");
-    navLinks.classList.toggle("show");
-}
+// function main() {
+//   toggleMenu();
+// }
+
+// function toggleMenu() {
+//   const navLinks = document.getElementById("navLinks");
+//   navLinks.classList.toggle("show");
+// }

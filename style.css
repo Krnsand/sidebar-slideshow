@@ -35,29 +35,45 @@ body {
 
 
 /* Hamburgermeny-knapp */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: rgb(17, 16, 16);
-    margin: 4px;
-}
-
-/* Navigation länkar */
 .nav-links {
+    position: absolute; /* Viktigt för att kunna styra positionen */
+    top: 0;
+    right: 0;
+    width: 200px; /* Anpassa bredden */
+    height: 100vh; /* Gör menyn fullhöjd */
+    background-color: rgba(0, 0, 0, 0.8); /* Halvtransparent svart bakgrund */
+    display: none; /* Startar som dold */
+    flex-direction: column; /* Länkar i kolumn */
+    justify-content: center; /* Centrerar länkar vertikalt */
+    align-items: center; /* Centrerar länkar horisontellt */
+    z-index: 10; /* Ser till att menyn ligger över alla andra element */
+  }
+  
+  /* När menyn öppnas */
+  .nav-links.show {
+    display: flex; /* Gör menyn synlig */
+  }
+  
+  /* Styla hamburgerikonen */
+  .hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
     display: flex;
-    gap: 1rem;
-}
-
-.nav-links a {
-    color: rgb(19, 17, 17);
-    text-decoration: none;
-}
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 20; /* Lägg hamburgerikonen över allt */
+  }
+  
+  .hamburger div {
+    background-color: #fff; /* Vit färg för linjer */
+    height: 3px;
+    width: 100%;
+  }
+  
 
 /* Responsiv design */
 @media (max-width: 768px) {
