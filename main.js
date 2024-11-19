@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-  let currentIndex = 0; // Startindex för slideshow
+  let currentIndex = 0;
   const slides = document.querySelectorAll(".slide");
   const intervalTime = 3000;
 
@@ -22,3 +22,16 @@ window.addEventListener("DOMContentLoaded", () => {
     navLinks.classList.toggle("show");
   });
 });
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const body = document.body;
+
+  if (sidebar.classList.contains("open")) {
+    sidebar.classList.remove("open");
+    body.classList.remove("sidebar-open");
+  } else {
+    sidebar.classList.add("open");
+    body.classList.add("sidebar-open");
+  }
+}

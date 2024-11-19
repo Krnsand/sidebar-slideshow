@@ -33,65 +33,46 @@ body {
     opacity: 1;
 }
 
+/* Bas för navbar */
+.navbar {
+    position: relative;
+    padding: 0;
+  }
 
-/* Hamburgermeny-knapp */
-.nav-links {
-    position: absolute; /* Viktigt för att kunna styra positionen */
+.navbar-nav {
+    padding-top: 4rem;
+}
+  
+  /* Sidebar styling */
+  .sidebar {
+    position: fixed;
     top: 0;
-    right: 0;
-    width: 200px; /* Anpassa bredden */
-    height: 100vh; /* Gör menyn fullhöjd */
-    background-color: rgba(0, 0, 0, 0.8); /* Halvtransparent svart bakgrund */
-    display: none; /* Startar som dold */
-    flex-direction: column; /* Länkar i kolumn */
-    justify-content: center; /* Centrerar länkar vertikalt */
-    align-items: center; /* Centrerar länkar horisontellt */
-    z-index: 10; /* Ser till att menyn ligger över alla andra element */
+    left: -300px; /* Startar utanför skärmen */
+    width: 300px;
+    height: 100%;
+    background-color: #f8f9fa; /* Bootstrap's bg-body-tertiary */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Liten skugga */
+    overflow-y: auto; /* Om innehållet blir långt */
+    transition: left 0.3s ease-in-out; /* Smidig animation */
+    z-index: 1050; /* Överlägsen navbar */
+    padding: 15px;
   }
   
-  /* När menyn öppnas */
-  .nav-links.show {
-    display: flex; /* Gör menyn synlig */
+  /* När sidomenyn är öppen */
+  .sidebar.open {
+    left: 0; /* Flytta in menyn */
   }
   
-  /* Styla hamburgerikonen */
-  .hamburger {
+  /* För hamburgaren */
+  .navbar-toggler {
     position: fixed;
     top: 10px;
     left: 10px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 20; /* Lägg hamburgerikonen över allt */
+    z-index: 1100; /* Över sidomenyn */
   }
   
-  .hamburger div {
-    background-color: #fff; /* Vit färg för linjer */
-    height: 3px;
-    width: 100%;
+  /* För att undvika att bakgrundsinnehåll scrollas */
+  body.sidebar-open {
+    overflow: hidden;
   }
   
-
-/* Responsiv design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-}
